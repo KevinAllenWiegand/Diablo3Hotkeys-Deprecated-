@@ -1,0 +1,17 @@
+{
+    "profiles": [
+        {
+            "name": "Test Profile",
+            "default": true,
+            "allowRightMouseButtonDown": true,
+            "skills": {
+                "3": {
+                    "interval": 1000
+                },
+                "4": {
+                    "interval": 2000
+                }
+            }
+        }
+    ]
+}

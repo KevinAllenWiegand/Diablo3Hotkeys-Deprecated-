@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diablo III Hotkeys", "Diablo3Hotkeys\Diablo3Hotkeys.csproj", "{A065921C-1CBA-4511-AB58-4AF531FB5768}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A065921C-1CBA-4511-AB58-4AF531FB5768}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A065921C-1CBA-4511-AB58-4AF531FB5768}.Debug|x64.Build.0 = Debug|Any CPU
+		{A065921C-1CBA-4511-AB58-4AF531FB5768}.Release|x64.ActiveCfg = Release|Any CPU
+		{A065921C-1CBA-4511-AB58-4AF531FB5768}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D1A8B6A-C6B1-410A-9159-F0BFD261EF84}
+	EndGlobalSection
+EndGlobal

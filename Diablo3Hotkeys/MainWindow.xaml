@@ -1,0 +1,73 @@
+﻿<Window x:Class="DiabloIIIHotkeys.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiabloIIIHotkeys"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        xmlns:behaviors="clr-namespace:DiabloIIIHotkeys.Behaviors"
+        xmlns:converters="clr-namespace:DiabloIIIHotkeys.Converters"
+        mc:Ignorable="d"
+        Title="{StaticResource ApplicationName}" Height="450" Width="800"
+        Icon="Resources/D3Icon.ico"
+        Loaded="Window_Loaded"
+        StateChanged="Window_StateChanged">
+    <Window.Resources>
+        <converters:ReverseBooleanConverter x:Key="ReverseBooleanConverter" />
+    </Window.Resources>
+    <Grid>
+        <tb:TaskbarIcon Visibility="Visible" ToolTipText="{StaticResource ApplicationName}" TrayToolTip="{StaticResource TrayToolTip}"
+                        MenuActivation="RightClick" DoubleClickCommand="{Binding OnToggleApplicationVisibilityCommand}" IconSource="{Binding TrayIconSource}">
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Edit" IsEnabled="{Binding IsProfileRunning, Converter={StaticResource ReverseBooleanConverter}}">
+                        <MenuItem Header="Preferences" Command="{Binding OnEditPreferencesCommand}" />
+                        <MenuItem Header="Profiles" Command="{Binding OnEditProfilesCommand}" />
+                    </MenuItem>
+                    <MenuItem Header="Profiles" ItemsSource="{Binding MacroProfiles}">
+                        <MenuItem.Style>
+                            <Style TargetType="{x:Type MenuItem}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Items.Count, RelativeSource={RelativeSource Self}}" Value="0">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </MenuItem.Style>
+
+                        <MenuItem.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </MenuItem.ItemTemplate>
+                        <MenuItem.ItemContainerStyle>
+                            <Style TargetType="{x:Type MenuItem}">
+                                <Setter Property="IsChecked" Value="{Binding IsSelected}"/>
+                                <Setter Property="Command" Value="{Binding ToggleSelectionCommand }" />
+                                <Setter Property="CommandParameter" Value="{Binding .}" />
+                            </Style>
+                        </MenuItem.ItemContainerStyle>
+                    </MenuItem>
+                    <MenuItem Header="Stop Macros" Command="{Binding OnStopMacrosCommand}" />
+                    <Separator />
+                    <MenuItem Header="{Binding ToggleStateMenuDisplayString}" Command="{Binding OnToggleApplicationVisibilityCommand}" />
+                    <Separator />
+                    <MenuItem Header="Exit" Command="{Binding OnExitCommand}" />
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
+
+        <ScrollViewer Padding="10" behaviors:ScrollViewerBehavior.AutoScrollToBottom="{Binding ScrollToBottom, Mode=TwoWay}">
+            <TextBlock Text="{Binding LogMessages}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap">
+                <TextBlock.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="{Binding AutoScrollStateString}" Command="{Binding OnToggleAutoScrollStateCommand}" CommandParameter="{Binding .}" />
+                        <Separator />
+                        <MenuItem Header="Copy Log To Clipboard" Command="{Binding OnCopyLogToClipboardCommand}" CommandParameter="{Binding .}" />
+                        <MenuItem Header="Clear Log" Command="{Binding OnClearLogCommand}" CommandParameter="{Binding .}" />
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
+        </ScrollViewer>
+    </Grid>
+</Window>

@@ -1,0 +1,31 @@
+{
+    "alwaysAllowHotkeys": false,
+    "toggleProfileMacro": {
+        "key": "A",
+        "ctrlModifier": true,
+        "shiftModifier": true
+    },
+    "rightButtonDownMacro": {
+        "key": "W",
+        "ctrlModifier": true,
+        "shiftModifier": true
+    },
+    "skillKeybindOverrides": {
+        "1": {
+            "key":  "1",
+            "useNumPad": false
+        },
+        "2": {
+            "key": "2",
+            "useNumPad": false
+        },
+        "3": {
+            "key": "3",
+            "useNumPad": false
+        },
+        "4": {
+            "key": "4",
+            "useNumPad": false
+        }
+    }
+}
