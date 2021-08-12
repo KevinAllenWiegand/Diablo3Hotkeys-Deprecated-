@@ -74,6 +74,17 @@ namespace DiabloIIIHotkeys.ViewModels
             }
         }
 
+        private string _CurrentProfileMacroSummary = "0/0/0/0";
+        public string CurrentProfileMacroSummary
+        {
+            get { return _CurrentProfileMacroSummary; }
+            set
+            {
+                _CurrentProfileMacroSummary = value;
+                NotifyPropertyChanged(nameof(CurrentProfileMacroSummary));
+            }
+        }
+
         private string _AutoScrollStateString = "Pause Auto Scroll";
         public string AutoScrollStateString
         {
@@ -93,6 +104,7 @@ namespace DiabloIIIHotkeys.ViewModels
             {
                 _SelectedMacroProfile = value;
                 CurrentProfileName = _SelectedMacroProfile != null ? _SelectedMacroProfile.Name : "None";
+                CurrentProfileMacroSummary = _SelectedMacroProfile != null ? $"{_SelectedMacroProfile.Macros[0].Interval}/{_SelectedMacroProfile.Macros[1].Interval}/{_SelectedMacroProfile.Macros[2].Interval}/{_SelectedMacroProfile.Macros[3].Interval}" : "0/0/0/0";
                 NotifyPropertyChanged(nameof(SelectedMacroProfile));
                 OnSelectedMacroProfileChanged();
             }
@@ -179,6 +191,7 @@ namespace DiabloIIIHotkeys.ViewModels
                 if (item.IsSelected)
                 {
                     CurrentProfileName = "None";
+                    CurrentProfileMacroSummary = "0/0/0/0";
                 }
             });
         }

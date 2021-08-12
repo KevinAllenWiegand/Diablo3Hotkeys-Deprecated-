@@ -12,6 +12,14 @@ namespace DiabloIIIHotkeys.ViewModels
 
         public ObservableCollection<MacroViewModel> Macros { get; } = new ObservableCollection<MacroViewModel>();
 
+        public string Tooltip
+        {
+            get
+            {
+                return $"{Macros[0].Interval}/{Macros[1].Interval}/{Macros[2].Interval}/{Macros[3].Interval}";
+            }
+        }
+
         private bool _IsSelected;
 
         public bool IsSelected

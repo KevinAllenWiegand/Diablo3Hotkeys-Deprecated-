@@ -12,7 +12,7 @@
             <system:String x:Key="ApplicationName">Diablo III Hotkeys</system:String>
             <Border x:Key="TrayToolTip" Background="White" BorderBrush="Black" BorderThickness="2" CornerRadius="4" Opacity="0.8" Width="160" Padding="5">
                 <StackPanel HorizontalAlignment="Stretch">
-                    <TextBlock Text="{StaticResource ApplicationName}"  FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center" TextWrapping="WrapWithOverflow" />
+                    <TextBlock Text="{StaticResource ApplicationName}" FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center" TextWrapping="WrapWithOverflow" />
                     <Rectangle HorizontalAlignment="Stretch" Fill="Black" Height="1" />
 
                     <Grid>
@@ -22,6 +22,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
+                            <RowDefinition />
                             <RowDefinition />
                             <RowDefinition />
                             <RowDefinition />
@@ -35,6 +36,8 @@
 
                         <Label Grid.Column="0" Grid.Row="2" Content="Macros:" Padding="0" Margin="0,0,5,0" FontWeight="Bold" />
                         <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding IsProfileRunning, Converter={StaticResource BooleanToRunningStringConverter}}" Foreground="Black" Padding="0" Margin="0" />
+
+                        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Text="{Binding CurrentProfileMacroSummary}" Foreground="Black" FontWeight="Bold" Padding="0" Margin="0" HorizontalAlignment="Center" />
                     </Grid>
                 </StackPanel>
             </Border>
