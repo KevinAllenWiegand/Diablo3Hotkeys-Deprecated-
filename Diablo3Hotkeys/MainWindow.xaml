@@ -48,8 +48,6 @@
                             </Style>
                         </MenuItem.ItemContainerStyle>
                     </MenuItem>
-                    <MenuItem Header="Stop Macros" Command="{Binding OnStopMacrosCommand}" />
-                    <Separator />
                     <MenuItem Header="{Binding ToggleStateMenuDisplayString}" Command="{Binding OnToggleApplicationVisibilityCommand}" />
                     <Separator />
                     <MenuItem Header="Exit" Command="{Binding OnExitCommand}" />

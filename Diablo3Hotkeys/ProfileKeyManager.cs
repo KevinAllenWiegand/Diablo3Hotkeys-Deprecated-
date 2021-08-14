@@ -154,34 +154,6 @@ namespace DiabloIIIHotkeys
                         NativeMethods.SendInput(1, inputs, NativeMethods.INPUT.Size);
 
                         break;
-                    case ProfileKeyAction.Stop:
-                        Logger.Instance.Log("Stopping profile.");
-
-                        _KeysToPress.Clear();
-                        IsRunning = false;
-                        _KeysChangedSinceLastExecute = true;
-                        _CurrentProfileIsActive = false;
-
-                        break;
-                    case ProfileKeyAction.Action:
-                        var keypressParameters = new KeypressParameters(actionParameters.Parameter, 500);
-
-                        if (_KeysToPress.Contains(keypressParameters))
-                        {
-                            Logger.Instance.Log($"Removing \"{actionParameters.Parameter}\" from the list of keys.");
-                            _KeysToPress.Remove(keypressParameters);
-                            _KeysChangedSinceLastExecute = true;
-                            IsRunning = _KeysToPress.Count > 0;
-                        }
-                        else
-                        {
-                            Logger.Instance.Log($"Adding \"{actionParameters.Parameter}\" to the list of keys.");
-                            _KeysToPress.Add(keypressParameters);
-                            _KeysChangedSinceLastExecute = true;
-                            IsRunning = true;
-                        }
-
-                        break;
                 }
             }
         }

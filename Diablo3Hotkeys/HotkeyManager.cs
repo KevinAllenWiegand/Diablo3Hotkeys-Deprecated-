@@ -70,6 +70,7 @@ namespace DiabloIIIHotkeys
             if (preferences != null)
             {
                 _AlwaysAllowHotKeys = preferences.AlwaysAllowHotkeys;
+                Logger.Instance.WriteLogToFile = preferences.WriteLogToFile;
 
                 if (preferences.SkillKeybindOverrides != null)
                 {
@@ -123,11 +124,6 @@ namespace DiabloIIIHotkeys
                 }
             }
 
-            _HotkeyDefinitions.Add(0, new HotkeyDefinition(NativeMethods.MOD_CONTROL, NativeMethods.GetVirtualKeyForValue("0"), ProfileKeyActionParameters.StopActionParameters));
-            _HotkeyDefinitions.Add(1, new HotkeyDefinition(NativeMethods.MOD_CONTROL, NativeMethods.GetVirtualKeyForValue("1"), new ProfileKeyActionParameters(ProfileKeyAction.Action, key1Value ?? _DefaultKey1)));
-            _HotkeyDefinitions.Add(2, new HotkeyDefinition(NativeMethods.MOD_CONTROL, NativeMethods.GetVirtualKeyForValue("2"), new ProfileKeyActionParameters(ProfileKeyAction.Action, key2Value ?? _DefaultKey2)));
-            _HotkeyDefinitions.Add(3, new HotkeyDefinition(NativeMethods.MOD_CONTROL, NativeMethods.GetVirtualKeyForValue("3"), new ProfileKeyActionParameters(ProfileKeyAction.Action, key3Value ?? _DefaultKey3)));
-            _HotkeyDefinitions.Add(4, new HotkeyDefinition(NativeMethods.MOD_CONTROL, NativeMethods.GetVirtualKeyForValue("4"), new ProfileKeyActionParameters(ProfileKeyAction.Action, key4Value ?? _DefaultKey4)));
             // This is for the Right Mouse Button Down Macro
             _HotkeyDefinitions.Add(6, null);
 

@@ -1,5 +1,6 @@
 {
     "alwaysAllowHotkeys": false,
+    "writeLogToFile":  true,
     "toggleProfileMacro": {
         "key": "A",
         "ctrlModifier": true,

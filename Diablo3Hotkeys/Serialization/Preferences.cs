@@ -7,6 +7,9 @@ namespace DiabloIIIHotkeys.Serialization
         [JsonPropertyName("alwaysAllowHotkeys")]
         public bool AlwaysAllowHotkeys { get; set; }
 
+        [JsonPropertyName("writeLogToFile")]
+        public bool WriteLogToFile { get; set; }
+
         [JsonPropertyName("toggleProfileMacro")]
         public ProfileMacro ToggleProfileMacro { get; set; }
 

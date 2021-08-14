@@ -19,7 +19,6 @@ namespace DiabloIIIHotkeys.ViewModels
         public ICommand OnCopyLogToClipboardCommand { get; }
         public ICommand OnClearLogCommand { get; }
         public ICommand OnToggleAutoScrollStateCommand { get; }
-        public ICommand OnStopMacrosCommand { get; }
         public ICommand OnEditPreferencesCommand { get; }
         public ICommand OnEditProfilesCommand { get; }
 
@@ -126,14 +125,8 @@ namespace DiabloIIIHotkeys.ViewModels
             OnCopyLogToClipboardCommand = new CopyLogToClipboardCommand();
             OnClearLogCommand = new ClearLogCommand();
             OnToggleAutoScrollStateCommand = new ToggleAutoScrollStateCommand();
-            OnStopMacrosCommand = new RelayCommand(OnStopMacrosCommandImpl, parameter => IsProfileRunning);
             OnEditPreferencesCommand = new RelayCommand(OnEditPreferencesCommandImpl, parameter => !IsProfileRunning);
             OnEditProfilesCommand = new RelayCommand(OnEditProfilesCommandImpl, parameter => !IsProfileRunning);
-        }
-
-        private void OnStopMacrosCommandImpl(object parameter)
-        {
-            ((ICommand)new PerformProfileKeyActionCommand()).Execute(ProfileKeyActionParameters.StopActionParameters);
         }
 
         private void OnEditPreferencesCommandImpl(object parameter)
